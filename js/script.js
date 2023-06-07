@@ -4,11 +4,13 @@ console.log('JS OK')
 // # FUNCTION---------------------------------------
 
 // Function per creare una cell
-const createCell = () => {
+const createCell = (number) => {
     const cell = document.createElement('div');
     cell.classList.add ('cell');
+    cell.innerText = number;
     return cell;
 }
+
 
 
 // # INITIAN OPERATIONS----------------------------
@@ -28,16 +30,19 @@ let gridVisible = false;
 
 // Creo un Event Listener al click del Button
 button.addEventListener ('click', function () {
-    
+
     // Controllo se la grid è già stata visualizzata
     if (!gridVisible) {
+        let cellNumber = 1;
       // reinderizzo le cell
       for(let i = 0; i < totalCells; i++) {
     
-      // creo le cell (nodi)
-      const cell = createCell();
-      // appendo  cel (nodi) a grid
+      // Creo le cell (nodi) con il numero corrispondente
+      const cell = createCell(cellNumber);
+      // appendo  cell (nodi) a grid
       grid.appendChild(cell);
+      // Incremento il numero della cella
+        cellNumber++;
     }
     // Imposto lo stato della grid su true
     gridVisible = true;
