@@ -11,6 +11,14 @@ const createCell = (number) => {
     return cell;
 }
 
+// Function per gestire il click sulla cella
+const handleCellClick = (event) => {
+    const clickedCell = event.target;
+    const cellNumber = clickedCell.innerText;
+    console.log('Numero della cella cliccata:', cellNumber);
+    clickedCell.classList.add('cell-clicked');
+}
+
 
 
 // # INITIAN OPERATIONS----------------------------
@@ -39,6 +47,8 @@ button.addEventListener ('click', function () {
     
       // Creo le cell (nodi) con il numero corrispondente
       const cell = createCell(cellNumber);
+       // Aggiungo il gestore di eventi al click sulla cella
+      cell.addEventListener('click', handleCellClick);
       // appendo  cell (nodi) a grid
       grid.appendChild(cell);
       // Incremento il numero della cella

@@ -33,6 +33,10 @@ main {
     align-items: center;
 }
 
+.cell-clicked {
+    background-color: lightblue;
+}
+
 
 /* Footer */
 footer {
